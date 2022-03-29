@@ -1,0 +1,366 @@
+<div className = 'payment__priceContainer'>
+	<CurrencyFormat 
+		renderText = {(value) =>
+		(
+			<h3>Order total : {value}</h3>
+		)}
+		decimalScale = {2}
+		value = {getBasketTotal(basket)}
+		displayType = {'text'}
+		thousandSeparator = {true}
+		prefix = {'$'}
+</div>
+
+
+const instance = axios.create({
+	baseURL:'...' // The API(cloud function) URL
+});
+export default instance;
+
+useEffect(() =>{
+	<!-- Generate the special stripe secret that enables us to charge a customer -->
+	const getClientSecret = async () =>{
+		const response = await axios({
+		method:'post',
+		url:`/payments/create?total = ${getBasketTotal(basket)}`
+	})
+	}
+})
+
+
+const handleSubmit = async(e) =>
+{
+	e.preventDefault();
+	setProcessing(true);
+
+	const payload = await stripe.confirmCardPayment(clientSecret , {
+		payment_method:{
+			card:elements.getElement(CardElement)
+	}
+}).then(({paymentIntent}))
+}
+
+//App config
+
+const app = express();
+
+//Middlewares
+
+app.use(cors({ origin:true }))
+app.use(express.json());
+
+//Api routes
+
+app.get('/' , (request , response) => response.status(200).send('Hello World'))
+
+app.post('/payments/create' , async(request ,response) =>{
+	const total = request.query.total;
+	console.log('Payment request received' , total)
+
+	const paymentIntent = await stripe.paymentIntents.create({
+	amount:total,
+	currency:'usd'
+	})
+
+	//Ok creted
+	response.status(201).send({
+		clientSecret:paymentIntent.client_secret,
+	})
+})
+
+
+
+<div className = 'video'>
+	<video 
+		className="video__player"
+		loop
+		src={url} 
+	>
+		
+	</video>
+</div>
+
+.video{
+	position:relative;
+	background-color:#fff;
+	width:100%;
+	height:100%;
+	scroll-snap-align:start;
+}
+
+.video__player{
+	object-fit:fill;
+	width:100%;
+	height:100%;
+}
+
+.app__videos{
+	position:relative;
+	height:800px;
+	border-radius:20px;
+	width:80%;
+	max-width:500px;
+	overflow:scroll;
+	scroll-snap-style: y mandatory;
+}
+const handleVideoPress = () =>{
+	if(playing) {
+		videoRef.current.pause();
+		setPlaying(false);
+}
+}
+
+.videoFooter{
+	position:relative;
+	color:#fff;
+	bottom:150px;
+	margin-left:40px;
+	displax:flex;
+}
+.app__videos :: -webkit-scrollbar{
+	display:none;
+}
+.app__videos{
+	-ms-overflow-style:none;
+	scrollbar-width:none;
+}
+
+.videoFooter{
+	position:relative;
+	color:#fff;
+	bottom:150px;
+	margin-left:40px;
+	display:flex;
+}
+
+.videoFooter__text{
+	flex:1;
+}
+.videoFooter__text > p
+{
+	padding-bottom:20px;
+}
+.videoFooter__text > h3{
+	padding-bottom:20px;
+}
+
+<div className = 'videoFooter'>
+	<div className = 'videoFooter__text'>
+		<h3>@otdee</h3>
+		<p>Description</p>
+		<div className = 'videoFooter__ticker'>
+			<MusicNoteIcon
+				className = 'videoFooter__icon' />
+				<Ticker mode = 'smooth'>
+					{({ index }) => (
+						<>
+							<p>song</p>
+						</>
+					)}
+				</Ticker>
+
+		</div>		
+	</div>
+</div>
+
+.videoFooter__ticker > .ticker{
+	height:fit-content;
+	margin-left:30px;
+	width:60%;
+}
+
+.videoFooter__record{
+	animation:spinTheRecord infinite 5s linear;
+	height:50px;
+	filter:invert(1);
+	position:absolute;
+	bottom:0;
+	right:20px;
+}
+@keyframes sinTheRecord{
+	from {
+		transform:rotate(0deg)
+	}
+	to {
+		transform:rotate(360deg)
+	}
+}
+
+
+.videoSidebar{
+	position:absolute;
+	top: 50%;
+	right:10px;
+	color: #fff;
+}
+.videoSidebar__button{
+	padding: 20px;
+	text-align;
+}
+
+<div className = 'videoSidebar'>
+	<div className = 'videoSidebar__button'>
+		<FavoriteIcon fontSize = 'large' />
+		<p>100</p>
+	</div>
+	<div className = 'videoSidebar__button'>
+		<MessageIcon fontSize = 'large' />
+	</div>
+	<div className = 'videoSidebar__button'>
+		<ShareIcon fontSize = 'large' />
+	</div>
+</div>
+
+
+{
+	liked ? (
+		<FavoriteIcon fontSize = 'large' onClick = {
+			(e) => setLiked(false)
+			} />
+	):(
+		<FavoriteBorderIcon
+			fontSize = 'large'
+			onClick = {(e) => setLiked(true)}
+		/>
+
+	)
+}
+<p>{liked ? likes +1: likes}</p>
+
+TJS5jB2orEB21y6t
+
+mongoose.connect(connection_url , {
+	useNewUrlParser:true,
+	useCreateIndex:true,
+	useUnifiedTopology:true
+})
+
+const tiktokSchema = mongoose.Schema({
+	channel:String,
+	song:String,
+	likes:String,
+	messages:String,
+	description:String,
+	shares:String
+})
+
+
+export default mongoose.model('tiktokVideos' , tiktokSchema)
+
+<Avatar
+	className = 'post__avatar'
+	alt = 'ChurchillCoder'
+	src = 'static/images/avatar/1.jpg'
+
+background-color:#15023a;
+
+.humberger{
+	width:32px;
+	height:25px;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+
+	span{
+	width:100;
+	height:3px;
+	background-color:$maincolor;
+}
+}
+
+export default function PortfolioList({id , title , active , setSelected})
+{
+	return(
+		<li
+			className = {active ? "portfolioList active":"portfolioList"}
+		>
+		</li>
+		{title}
+	)
+}
+
+
+.slider{
+	height:350px;
+	display:flex;
+	position:absolute;
+	left:0;
+	.container{	
+		width:100vw;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+		.item{
+		width:700px;
+		height:100%;
+		border-radius:20px;
+		background-color:#fff;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+		.left{
+			flex:4;
+			background-color:maroon;
+	}
+		.right{
+				flex:6;
+				background-color:yellow;
+
+		}
+	}
+
+	}
+
+}
+<div style={modalStyle} className= {classes.paper}>
+	<h2>I am a Modal</h2>
+</div>
+
+
+const useStyles = makeStyles((theme) =>({
+	paper:{
+	position:absolute,
+	width:400,
+	backgroundColor:theme.palette.background.paper,
+	border:'2px solid #000',
+	boxShadow:theme.shadows[5],
+	padding:theme.spacing(2 , 4 , 3),
+},
+}))
+
+function getModalStyle(){
+	const top = 50;
+	const left = 50;
+
+	return{
+	top:`${top}`,
+	left:`${left},
+	transform:`translate(-${top}%, -${left}%)`
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

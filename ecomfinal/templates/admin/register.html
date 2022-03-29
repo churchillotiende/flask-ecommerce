@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+<link rel="stylesheet"  type = "text/css" href = "{{ url_for('static' , filename = 'base.css') }}"/>
+<body>
+    {% block content %}
+        <div class="form-group">
+            <form class="form" method="POST">
+                {{ form.hidden_tag() }}
+                <div>
+                    <legend>Join CandleGlows Today</legend>
+                </div>
+                <div class="form-content">
+                    <div> 
+                        {{ form.username.label(class = "form-control-label") }} <br />
+                        {% if form.username.errors %}
+                            {{ form.username(class = "form-control form-control-lg is-invalid"  ,size=32) }}<br>
+                            {% for error in form.username.errors %}
+                                <span style="color: red;font-size: smaller;" > {{ error }}</span>
+                            {% endfor %}
+                        {% else %}
+                            {{ form.username(class = "form-control form-control-lg" ,size=32) }}
+                        {% endif %}
+                    </div>
+                    <div>
+                        {{ form.email.label(class = "form-control-label") }} <br />
+                        {% if form.email.errors %}
+                            {{ form.email(class = "form-control form-control-lg is-invalid"  ,size=32) }} <br>
+                            {% for error in form.email.errors %}
+                                <span style="color: red;font-size: smaller;" > {{ error }}</span>
+                            {% endfor %}
+                        {% else %}
+                                {{ form.email(class = "form-control form-control-lg" ,size=32) }}
+                        {% endif %}
+                    </div>
+                    <div>
+                        {{ form.password_hash.label(class = "form-control-label") }} <br />
+                        {% if form.password_hash.errors %}
+                            {{ form.password_hash(class = "form-control form-control-lg is-invalid"  ,size=32) }} <br>
+                            {% for error in form.password_hash.errors %}
+                                <span style="color: red;font-size: smaller;" > {{ error }}</span>
+                            {% endfor %}
+                        {% else %}
+                                {{ form.password_hash(class = "form-control form-control-lg" ,size=32) }}
+                        {% endif %}
+                    </div>
+                    <div>
+                        {{ form.confirm_pwd.label(class = "form-control-label") }} <br />
+                        {% if form.confirm_pwd.errors %}
+                            {{ form.confirm_pwd(class = "form-control form-control-lg is-invalid"  ,size=32) }} <br>
+                            {% for error in form.confirm_pwd.errors %}
+                                <span style="color: red;font-size: smaller;" > {{ error }}</span>
+                            {% endfor %}
+                        {% else %}
+                            {{ form.confirm_pwd(class = "form-control form-control-lg" ,size=32) }}
+                        {% endif %}
+                    </div>
+                    
+                    {{ form.submit(class="submit") }}
+                    
+                    <p></p>
+                    <small>
+                        Already have an account ? <a href="{{ url_for('admin_login') }}">Login</a>
+                    </small>
+                </div>    
+            </form>
+    {% endblock content %}
+        </div>
+        
+</body>

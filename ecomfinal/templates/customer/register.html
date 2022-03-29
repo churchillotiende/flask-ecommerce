@@ -1,0 +1,138 @@
+{% extends 'layout.html' %}
+<link rel="stylesheet"  type = "text/css" href = "{{ url_for('static' , filename = 'base.css') }}"/>
+<body>
+    {% block content %}
+    {% include 'navbar.html' %}
+        <div class="form-group">
+            <form class="form" method="POST">
+                {{ form.hidden_tag() }}
+                <div>
+                    <legend>Join CandleGlows Today</legend>
+                </div>
+                <div class="form-content">
+                    <div> 
+                        {{ form.name.label(class = "form-control-label") }} <br />
+                        {% if form.name.errors %}
+                            {{ form.name(class = "form-control form-control-lg is-invalid"  ,size=32) }}<br>
+                            {% for error in form.name.errors %}
+                                <span style="color: red;font-size: smaller;" > {{ error }}</span>
+                            {% endfor %}
+                        {% else %}
+                            {{ form.name(class = "form-control form-control-lg" ,size=32) }}
+                        {% endif %}
+                    </div>
+                    <div>
+                        {{ form.email.label(class = "form-control-label") }} <br />
+                        {% if form.email.errors %}
+                            {{ form.email(class = "form-control form-control-lg is-invalid"  ,size=32) }} <br>
+                            {% for error in form.email.errors %}
+                                <span style="color: red;font-size: smaller;" > {{ error }}</span>
+                            {% endfor %}
+                        {% else %}
+                                {{ form.email(class = "form-control form-control-lg" ,size=32) }}
+                        {% endif %}
+                    </div>
+                    <div>
+                        {{ form.password.label(class = "form-control-label") }} <br />
+                        {% if form.password.errors %}
+                            {{ form.password(class = "form-control form-control-lg is-invalid"  ,size=32) }} <br>
+                            {% for error in form.password.errors %}
+                                <span style="color: red;font-size: smaller;" > {{ error }}</span>
+                            {% endfor %}
+                        {% else %}
+                                {{ form.password(class = "form-control form-control-lg" ,size=32) }}
+                        {% endif %}
+                    </div>
+                    <div>
+                        {{ form.confirm.label(class = "form-control-label") }} <br />
+                        {% if form.confirm.errors %}
+                            {{ form.confirm(class = "form-control form-control-lg is-invalid"  ,size=32) }} <br>
+                            {% for error in form.confirm.errors %}
+                                <span style="color: red;font-size: smaller;" > {{ error }}</span>
+                            {% endfor %}
+                        {% else %}
+                            {{ form.confirm(class = "form-control form-control-lg" ,size=32) }}
+                        {% endif %}
+                    </div>
+
+                    <div>
+                        {{ form.city.label(class = "form-control-label") }} <br />
+                        {% if form.city.errors %}
+                            {{ form.city(class = "form-control form-control-lg is-invalid"  ,size=32) }} <br>
+                            {% for error in form.city.errors %}
+                                <span style="color: red;font-size: smaller;" > {{ error }}</span>
+                            {% endfor %}
+                        {% else %}
+                            {{ form.city(class = "form-control form-control-lg" ,size=32) }}
+                        {% endif %}
+                    </div>
+
+                    <div>
+                        {{ form.country.label(class = "form-control-label") }} <br />
+                        {% if form.country.errors %}
+                            {{ form.country(class = "form-control form-control-lg is-invalid"  ,size=32) }} <br>
+                            {% for error in form.country.errors %}
+                                <span style="color: red;font-size: smaller;" > {{ error }}</span>
+                            {% endfor %}
+                        {% else %}
+                            {{ form.country(class = "form-control form-control-lg" ,size=32) }}
+                        {% endif %}
+                    </div>
+                    <div>
+                        {{ form.address.label(class = "form-control-label") }} <br />
+                        {% if form.address.errors %}
+                            {{ form.address(class = "form-control form-control-lg is-invalid"  ,size=32) }} <br>
+                            {% for error in form.address.errors %}
+                                <span style="color: red;font-size: smaller;" > {{ error }}</span>
+                            {% endfor %}
+                        {% else %}
+                            {{ form.address(class = "form-control form-control-lg" ,size=32) }}
+                        {% endif %}
+                    </div>
+                    <div>
+                        {{ form.zip_code.label(class = "form-control-label") }} <br />
+                        {% if form.zip_code.errors %}
+                            {{ form.zip_code(class = "form-control form-control-lg is-invalid"  ,size=32) }} <br>
+                            {% for error in form.zip_code.errors %}
+                                <span style="color: red;font-size: smaller;" > {{ error }}</span>
+                            {% endfor %}
+                        {% else %}
+                            {{ form.zip_code(class = "form-control form-control-lg" ,size=32) }}
+                        {% endif %}
+                    </div>
+
+                    <div>
+                        {{ form.profile.label(class = "form-control-label") }} <br />
+                        {% if form.profile.errors %}
+                            {{ form.profile(class = "form-control form-control-lg is-invalid"  ,size=32) }} <br>
+                            {% for error in form.profile.errors %}
+                                <span style="color: red;font-size: smaller;" > {{ error }}</span>
+                            {% endfor %}
+                        {% else %}
+                            {{ form.profile(class = "form-control form-control-lg" ,size=32) }}
+                        {% endif %}
+                    </div>
+                    <div>
+                        {{ form.date_created.label(class = "form-control-label") }} <br />
+                        {% if form.date_created.errors %}
+                            {{ form.date_created(class = "form-control form-control-lg is-invalid"  ,size=32) }} <br>
+                            {% for error in form.date_created.errors %}
+                                <span style="color: red;font-size: smaller;" > {{ error }}</span>
+                            {% endfor %}
+                        {% else %}
+                            {{ form.date_created(class = "form-control form-control-lg" ,size=32) }}
+                        {% endif %}
+                    </div>
+                    
+                    {{ form.submit(class="submit") }}
+                    
+                    <p></p>
+                    <small>
+                        Already have an account ? <a href="{{ url_for('admin_login') }}">Login</a>
+                    </small>
+                </div>    
+            </form>
+    {% endblock content %}
+        </div>
+        
+</body>

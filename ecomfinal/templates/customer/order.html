@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+{% block content %}
+    {% include 'navbar.html' %}
+    <div class="container">
+        Invoice: {{ orders.invoice }} <br>
+        Status: {{ orders.status }} <br>
+        Name: {{ customer.name }}<br>
+        Address:{{ customer.address }} <br>
+        Zip Code:{{ customer.zip_code }} <br>
+        Email:{{ customer.email }} <br><br>
+        <div class="row">
+            <table class="table table-sm">
+                <thead>
+                    <th>Sr</th>
+                    <th>Name</th>
+                    <th>Color</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Discount</th>
+                    <th>Subtotal</th>
+                </thead>
+                <tbody>
+                    {% for key ,  product in orders.orders.items() %}
+                        {% set Discount = '%0.2f' |format((product.Discount/100) * product.Cost|float )%}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ product.Name }}</td>
+                            <td>
+                                {{ product.Colors }}
+                            </td>
+                            <form action="{{ url_for('update_cart', code = key) }}" method="POST">
+                                <td>{{ product.Cost }}</td>
+                                <td>{{ product.Quantity }}</td>
+                                {% if product.Discount > 0 %}
+                                    <td>{{ product.Discount }}% &nbsp; is {{ Discount }}</td>
+                                {% else %}
+                                    <td></td>
+                                {% endif %}
+                                {% set subTotal = product.Quantity | int * product.Cost|float %}
+                                    <td>{{ "%0.2f"|format(subTotal|float - Discount|float) }}</td>
+                            </form>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <table class="table table-sm">
+                <tr>
+                    <td></td>
+                    <td>
+                        <a href="#" class="btn btn-success">Check out</a>
+                    </td>
+                    <td colspan="3">
+                        <h4>Tax : ksh {{ tax }}</h4>
+                    </td>
+                    <td colspan="3">
+                       <h4>  GrandTotal: ksh {{ grandTotal }} </h4>
+                    </td>
+                    <td colspan="3">
+                        <a href="#" class="btn btn-sm btn-danger">Get PDF</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+{% endblock content %}
+
+discount

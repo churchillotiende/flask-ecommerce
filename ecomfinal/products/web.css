@@ -1,0 +1,242 @@
+<div className = "header_search">
+  <input  className = "header_searchInput" type="text" name="search">
+</div>
+<div className = "heade_nav">
+  <div className = "header_option">
+   <span className = "header_option_1">
+     Hello Guest
+   </span>
+   <span className = "header_option_2">
+     Sign In
+   </span>
+  </div>
+  
+</div>
+import SerarchIcon from '@material-ui/icons/Search'
+
+.header_search{
+  display:flex;
+  flex:1;
+  align-items:center;
+  border-radius:24px; 
+}
+.header_search_icon{
+  padding:5px;
+  height:22px !important;
+  background-color:#cd9042; 
+}
+
+.header_search_icon{
+  padding:5px;
+  height:
+}
+.header_searchInput{
+  height:12px;
+  padding:10px;
+  border:none;
+  width:100%;
+}
+
+.home_image{
+  width:100%;
+  z-index:-1;
+  margin-bottom:-150px;
+  mask-image:linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))
+
+}
+
+.product{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  margin:10px;
+  padding:20px;
+  width:100%;
+  max-height:400px;
+  min-width:100px;
+  background-color:#fff;
+  z-index:1;
+}
+
+.product.img{
+  max-height:200px;
+  width:100%;
+  object-fit:contain;
+  margin-bottom:15px;
+}
+
+.product_info{
+  height:100px;
+  margin-bottom:15px;
+}
+.product button{
+  background:#f0c14b;
+  border:1px solid;
+  margin-top:10px;
+  border-color:#a88734 #9c7e31 #846a29;
+  color:#111;
+}
+.home_row{
+  display:flex;
+  z-index:1;
+  margin-bottom:-150px;
+  margin-right:5px;
+}
+
+<div className='product_rating'>
+  {
+    Array(rating)
+    .fill()
+    .map((_,i) =>
+    <p>p</p>
+    )
+  }
+</div>
+
+renderText = {(value) =>(
+  <>
+    <p>
+      Subtotal (0 items): <strong>0</strong>
+    </p>
+    <small className = 'subtotal_gift'>
+      <input type="checkbox" name="" />
+      This order contains a gift
+    </small>
+  </>
+)}
+decimalScale= {2}
+value = {0}
+displayType = {'text'}
+thousandSeparator = {true}
+prefix = {'$'}
+
+<button>Proceed to checkout</button>
+
+.subtotal{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  width:300px;
+  height:100px;
+  padding:20px;
+  background-color:#f3f3;
+  border:1px solid #ddd;
+  border-radius:3px;
+}
+.order_gift{
+  display:flex;
+  align-items_center
+}
+
+.subtotal button{
+  background:#f0c14b;
+  border-radius:2px;
+  width:100%;
+  height:30px;
+  border:1px solid;
+  margin-top:10px;
+  border-color:#a88734 #9c7e31 # 846a29;
+  color:#111;
+}
+
+import React , {createContext , useContext , useReducer} from 'react';
+
+//Prepares the data layer
+
+export const StateContext = createContext();
+
+export const StateProvider = ({reducer , initialState , children}) =>(
+  <StateContext.Provider value = {useReducer(reducer , initialState)}>
+    {children}
+  </StateContext.Provider>
+);
+export const useStateValue = () = useContext(StateContext);
+
+const reducer = (state , action) => {
+  switch(action.type) {
+    case:'ADD_TO_BASKET':
+      return {
+        ...state
+        basket:[...state.basket , action.item],
+    };
+    default:
+      return state;
+}
+}
+
+reducer.js
+//Selector
+export const getBasketTotal = (basket) =>
+  basket?.reduce((amount,item) =>item.price + amount , 0)
+
+const index = state.basket.findIndex(
+  (basketItem) => basketItem.id === action.id
+);
+let newBasket = [...state.basket]
+
+if(index >= 0)
+{
+  newBasket.splice(index , 1);
+}
+
+else{
+  console.warn(
+    `Cant remove product(id:${action.id} as its not in the basket)`
+  )
+}
+
+.login_logo{
+  margin-top:20px;
+  margin-bottom:20px;
+  object-fit:contain;
+  width:100px;
+  margin-right:auto;
+  margin-left:auto;
+}
+.login_container{
+  width:300px;
+  height:fit-content;
+  display:flex;
+  flex-direction:column;
+  border-radius:5px;
+  border:1px solid lightgray;
+  padding:20px;
+}
+
+.signin-container{
+    align-items: center;
+    // margin-top: 150px;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    height: 100vh;
+    background:linear-gradient(
+    173deg,
+    transparent,
+    rgba(90,200,250,0.1),
+    transparent,
+    rgba(64 , 156 ,255 , 0.1),
+    transparent
+
+  );
+    .form-container{
+        margin-top: 80px;
+        // background-color:rgb(142, 104, 153);
+        
+    }
+}
+#100e34
+
+.payment__section{
+  display:flex;
+  padding:20px;
+  margin:0 20px;
+  border-bottom:1px solid lightgray;
+}
+.payment__title{
+  flex:0.2;
+}
+.payment__address{
+  flex:0.8;
+}
